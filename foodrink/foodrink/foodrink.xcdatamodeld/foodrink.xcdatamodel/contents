@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E214" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FoodItems" representedClassName="FoodItems" syncable="YES">
+        <attribute name="consumptionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="experience" optional="YES" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" customClassName="[Data]"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="recipe" optional="YES" attributeType="String"/>
+        <attribute name="tastingnote" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="whiskyleft" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="images" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ImageContainer" inverseName="food" inverseEntity="ImageContainer"/>
+    </entity>
+    <entity name="ImageContainer" representedClassName="ImageContainer" syncable="YES">
+        <attribute name="content" attributeType="Binary"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodItems" inverseName="images" inverseEntity="FoodItems"/>
+    </entity>
+</model>
